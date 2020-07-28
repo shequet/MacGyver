@@ -12,15 +12,16 @@ class Treasure:
         self.__generate()
 
     def __generate(self):
+        """ Generate random position treasure """
         empty_tile = []
-        x = 0
+        tile_x = 0
         for line in self.grid:
-            y = 0
+            tile_y = 0
             for tile_name in line:
                 if tile_name == ".":
-                    empty_tile.append([x, y])
-                y += 1
-            x += 1
+                    empty_tile.append([tile_x, tile_y])
+                tile_y += 1
+            tile_x += 1
 
         treasure_name = random.sample(["N", "E", "S", "T"], self.quantity)
 
@@ -28,5 +29,3 @@ class Treasure:
         for item in random.sample(empty_tile, self.quantity):
             self.grid[item[0]][item[1]] = treasure_name[i]
             i += 1
-
-

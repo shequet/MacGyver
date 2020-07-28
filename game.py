@@ -43,10 +43,10 @@ def main():
         for event in pygame.event.get():  # User did something
             if event.type == pygame.QUIT:  # If user clicked close
                 done = True  # Flag that we are done so we exit this loop
-            elif event.type == pygame.KEYDOWN:
-                player.move(event.key)
-                labyrinth.draw()
-                score.draw(player.score)
+            elif event.type == pygame.KEYDOWN:  # If user press key
+                player.move(event.key)  # Move player
+                labyrinth.draw()  # Update labyrinth
+                score.draw(player.score)  # Update score
 
         pygame.display.update()
     print("Exit Game")
