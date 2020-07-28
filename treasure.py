@@ -6,11 +6,12 @@ import random
 
 class Treasure:
     """ Treasure to find """
-    def __init__(self, grid):
+    def __init__(self, grid, quantity):
         self.grid = grid
+        self.quantity = quantity
         self.__generate()
 
-    def __generate(self, quantity=3):
+    def __generate(self):
         empty_tile = []
         x = 0
         for line in self.grid:
@@ -21,10 +22,10 @@ class Treasure:
                 y += 1
             x += 1
 
-        treasure_name = random.sample(["N", "E", "S", "T"], quantity)
+        treasure_name = random.sample(["N", "E", "S", "T"], self.quantity)
 
         i = 0
-        for item in random.sample(empty_tile, quantity):
+        for item in random.sample(empty_tile, self.quantity):
             self.grid[item[0]][item[1]] = treasure_name[i]
             i += 1
 
