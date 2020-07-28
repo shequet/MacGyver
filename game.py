@@ -13,20 +13,17 @@ from score import Score
 def main():
     """ Main function """
 
-    # Initialize pygame
-    pygame.init()
+    pygame.init()  # Initialize pygame
 
-    # Set the HEIGHT and WIDTH of the screen
-    window = pygame.display.set_mode(DISPLAY_MODE)
+    window = pygame.display.set_mode(DISPLAY_MODE)  # Set the window size of the screen
 
-    # Set title of screen
-    pygame.display.set_caption(DISPLAY_GAME_TITLE)
+    pygame.display.set_caption(DISPLAY_GAME_TITLE)  # Set title of screen
 
-    # Set the background color
-    window.fill(BACKGROUND_COLOR)
+    window.fill(BACKGROUND_COLOR)  # Set the background color
 
     labyrinth = Labyrinth(window)
-    labyrinth.load_level_from_file("level/level1.map")
+    labyrinth.load_level_from_file("level/level1.map")  # Load level one
+
     Treasure(labyrinth.grid, TREASURE_TOTAL)
     labyrinth.draw()
 
@@ -38,7 +35,7 @@ def main():
     # Loop until the user clicks the close button.
     done = False
     while not done:
-        pygame.time.Clock().tick(60)
+        pygame.time.Clock().tick(60)  # Update the clock
 
         for event in pygame.event.get():  # User did something
             if event.type == pygame.QUIT:  # If user clicked close
