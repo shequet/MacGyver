@@ -44,3 +44,16 @@ Voici la liste des fichiers du jeu disponible sur GitHub https://github.com/sheq
 | /images/pipe.png  |  Image de l'objet Tube de pvc que MacGyver doit collecter | |
 | /images/syringe.png  |  Image de l'objet seringue que MacGyver doit collecter | |
 | /images/ether.png  |  Image de l'objet mur que MacGyver ne peut pas marcher | |
+
+## Captures
+
+### Sélection et placement aléatoire des objets
+![Démarrage](doc/images/screen-play.png)
+![Random](doc/images/screen-play-random.png)
+
+
+### Collecte de l'ensemble des objets
+![Collecte de l'ensemble des objets](doc/images/screen-win.png)
+
+### Collecte partielle des objets
+![Collecte partielle des objets](doc/images/screen-game-over.png)
