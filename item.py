@@ -25,9 +25,9 @@ class Item:
                 tile_y += 1
             tile_x += 1
 
-        treasure_name = random.sample(["N", "E", "S", "T"], self.quantity)
+        item_name = random.sample(["N", "E", "S", "T"], self.quantity)
 
         i = 0
         for item in random.sample(empty_tile, self.quantity):
-            self.grid[item[0]][item[1]] = treasure_name[i]
+            self.grid[item[0]][item[1]] = item_name[i]
             i += 1
