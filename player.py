@@ -7,13 +7,14 @@ import pygame
 class Player:
     """ Play in the Game (MacGyver) """
 
-    def __init__(self, grid, player_position, total_score):
+    def __init__(self, window, grid, player_position, total_score):
+        self.window = window
         self.last_tile = "."
         self.grid = grid
         self.player_position = player_position
         self.score = 0
         self.total_score = total_score
-        self.is_finish = False
+        self.is_finish = None
 
     def move(self, key):
         """ Move the player with the keyboard """
@@ -57,24 +58,22 @@ class Player:
     def __collect_object(self, tile_x, tile_y):
         """ Collect the object and increment a point """
 
-        if self.__get_new_tile(tile_x, tile_y) in ("N", "E", "S", "T"):
+        if self.__get_new_tile(tile_x, tile_y) in ("N", "E", "S", "T", ):
             self.__set_new_tile(tile_x, tile_y, ".")
             self.score += 1
 
     def __is_finish(self, tile_x, tile_y):
-        """ Check if the game is over """
+        """ Check if the game is over"""
+
         if self.__get_new_tile(tile_x, tile_y) == "G":
             if self.score == self.total_score:
                 self.__set_new_tile(tile_x, tile_y, ".")
                 self.is_finish = True
-                return True
             else:
-                print("Il manque des éléments")
-                return False
-        return False
+                self.is_finish = False
 
     def __possible_to_be_moved(self, tile_x, tile_y):
-        """ Check is possible to be move """
+        """ Check is possible to be move"""
 
         if self.__get_new_tile(tile_x, tile_y) == "W":
             return False
@@ -82,16 +81,35 @@ class Player:
 
     def __get_current_tile(self):
         """ Get current tile """
+
         return self.grid[self.player_position[0]][self.player_position[1]]
 
     def __set_current_tile(self, tile):
         """ Set current tile """
+
         self.grid[self.player_position[0]][self.player_position[1]] = tile
 
     def __get_new_tile(self, tile_x, tile_y):
         """ get new tile """
+
         return self.grid[self.player_position[0] + tile_x][self.player_position[1] + tile_y]
 
     def __set_new_tile(self, tile_x, tile_y, tile):
         """ set new tile """
+
         self.grid[self.player_position[0] + tile_x][self.player_position[1] + tile_y] = tile
+
+    def game_over(self):
+        """ Draw the game over text """
+
+        if self.is_finish:
+            self.__draw_game_over("Win the Game :)", (0, 255, 0), 100)
+        elif self.is_finish is False:
+            self.__draw_game_over("Game Over (:", (255, 0, 0), 130)
+
+    def __draw_game_over(self, message, color, position_x):
+        """ Draw the game over text """
+
+        font = pygame.font.Font('freesansbold.ttf', 40)
+        text = font.render(message, True, color)
+        self.window.blit(text, text.get_rect(x=position_x, y=200))
