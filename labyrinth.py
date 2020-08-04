@@ -27,62 +27,63 @@ class Labyrinth:
                 "name": "MacGyver Player",
                 "image": pygame.transform.scale(
                     pygame.image.load(os.path.join('images', 'player.png')),
-                    (TILE_HEIGHT, TILE_WIDTH)
+                    (TILE_WIDTH, TILE_HEIGHT)
                 )
             },
             "W": {
                 "name": "Wall",
                 "image": pygame.transform.scale(
                     pygame.image.load(os.path.join('images', 'wall.png')),
-                    (TILE_HEIGHT, TILE_WIDTH)
+                    (TILE_WIDTH, TILE_HEIGHT)
                 )
             },
             "G": {
                 "name": "Guardian",
                 "image": pygame.transform.scale(
                     pygame.image.load(os.path.join('images', 'guardian.png')),
-                    (TILE_HEIGHT, TILE_WIDTH)
+                    (TILE_WIDTH, TILE_HEIGHT)
                 )
             },
             ".": {
                 "name": "Green Path",
                 "image": pygame.transform.scale(
                     pygame.image.load(os.path.join('images', 'path.png')),
-                    (TILE_HEIGHT, TILE_WIDTH)
+                    (TILE_WIDTH, TILE_HEIGHT)
                 )
             },
             "N": {
                 "name": "Needle",
                 "image": pygame.transform.scale(
                     pygame.image.load(os.path.join('images', 'needle.png')),
-                    (TILE_HEIGHT, TILE_WIDTH)
+                    (TILE_WIDTH, TILE_HEIGHT)
                 )
             },
             "E": {
                 "name": "Ether",
                 "image": pygame.transform.scale(
                     pygame.image.load(os.path.join('images', 'ether.png')),
-                    (TILE_HEIGHT, TILE_WIDTH)
+                    (TILE_WIDTH, TILE_HEIGHT)
                 )
             },
             "S": {
                 "name": "Syringe",
                 "image": pygame.transform.scale(
                     pygame.image.load(os.path.join('images', 'syringe.png')),
-                    (TILE_HEIGHT, TILE_WIDTH)
+                    (TILE_WIDTH, TILE_HEIGHT)
                 )
             },
             "T": {
                 "name": "Pipe",
                 "image": pygame.transform.scale(
                     pygame.image.load(os.path.join('images', 'pipe.png')),
-                    (TILE_HEIGHT, TILE_WIDTH)
+                    (TILE_WIDTH, TILE_HEIGHT)
                 )
             },
         }
 
     def load_level_from_file(self, filename):
         """ load level from file """
+
         self.grid = []
         if os.path.exists(filename):  # Check if the file exists
             with open(filename, "r") as file:
@@ -121,8 +122,8 @@ class Labyrinth:
             self.window.blit(
                 self.images.get(tile_name)["image"],
                 [
-                    tile_y * TILE_HEIGHT,
-                    tile_x * TILE_WIDTH
+                    tile_y * TILE_WIDTH,
+                    tile_x * TILE_HEIGHT
                 ]
             )
         else:
