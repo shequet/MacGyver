@@ -1,18 +1,20 @@
 #! /usr/bin/env python3
 # coding: utf-8
-""" Treasure """
+""" Item class """
 import random
 
 
-class Treasure:
-    """ Treasure to find """
+class Item:
+    """ Item to find """
+
     def __init__(self, grid, quantity):
         self.grid = grid
         self.quantity = quantity
         self.__generate()
 
     def __generate(self):
-        """ Generate random position treasure """
+        """ Generate random position item """
+
         empty_tile = []
         tile_x = 0
         for line in self.grid:

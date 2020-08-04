@@ -3,10 +3,10 @@
 """ MacGyver project"""
 import pygame
 
-from constant import DISPLAY_MODE, DISPLAY_GAME_TITLE, TREASURE_TOTAL
+from constant import DISPLAY_MODE, DISPLAY_GAME_TITLE, ITEM_TOTAL
 from labyrinth import Labyrinth
 from player import Player
-from treasure import Treasure
+from item import Item
 from score import Score
 
 
@@ -22,17 +22,17 @@ def main():
     labyrinth = Labyrinth(window)
     labyrinth.load_level_from_file("level/level1.map")  # Load level one
 
-    Treasure(labyrinth.grid, TREASURE_TOTAL)
+    Item(labyrinth.grid, ITEM_TOTAL)
     labyrinth.draw()
 
-    score = Score(window, TREASURE_TOTAL)
+    score = Score(window, ITEM_TOTAL)
     score.draw()
 
     player = Player(
         window,
         labyrinth.grid,
         labyrinth.player_position,
-        TREASURE_TOTAL
+        ITEM_TOTAL
     )
 
     # Loop until the user clicks the close button.
