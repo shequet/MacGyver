@@ -1,26 +1,30 @@
 # Aidez MacGyver à s'échapper !
+Voici la présentation du Projet 3 de la formation Développeur d'application - Python
 
+## Installation et exécution du jeu
 
-## Installation du jeu MacGyver
+#### Pré requis
+Le jeu fonctionne sous Windows, Mac et linux, cependant il est nécessaire d'avoir installé Python 3.
 
-- Créez un environnement virtuel `python3 -m virtualenv env`
-- Activez l'environnement virtuel `./env/bin/activate`
+#### Installation
+- Il est préférable de créer un environnement virtuel `python3 -m virtualenv env`
+- Activez votre environnement virtuel `./env/bin/activate`
 - Installez les dépendances `pip install -r requirements.txt`
-- Démarrez le jeu `python3 game.py`
 
-## Démarche
+#### Paramétrage du jeu
 
-### Introduction
+Le jeu est paramétrable via un fichier de Python constant.py, il est possible de modifier les éléments suivants :
 
-### Choix de l'algorithme
-
-
-### Difficultés rencontrées et les solutions trouvées
-
+|  Variable | Description  | Exemples  |
+|---|---|---|
+| DISPLAY_GAME_TITLE  |  Titre du jeu dans la fenêtre | MacGyver Game |
+| DISPLAY_MODE  |  Taille du jeu en pixel [x, y] | [480, 480] |
+| TILE_HEIGHT  | Hauteur des images en pixel | 32 |
+| TILE_WIDTH  |  Largeur des images en pixel | 32 |
+| ITEM_TOTAL  |  Nombre d'objet à collecter| 3 |
 
 #### Les fichiers
 Voici la liste des fichiers du jeu disponible sur GitHub https://github.com/shequet/MacGyver
-
 
 |  Fichier | Description  | Exemples  |
 |---|---|---|
@@ -29,7 +33,7 @@ Voici la liste des fichiers du jeu disponible sur GitHub https://github.com/sheq
 | labyrinth.py |  Fichier de gestion du labyrinthe | Chargement du niveau, placement des images etc..|
 | player.py    |  Fichier de gestion de MacGyver | Gestion des déplacement, collision etc..|
 | score.py     |  Fichier de gestion du score | Gestion du score et affichage|
-| treasure.py  |  Fichier de gestion des objects | Placement de manière aléatoire des objects dans le labyrinthe|
+| item.py  |  Fichier de gestion des objects | Placement de manière aléatoire des objects dans le labyrinthe|
 | README.md  |  Documentation du projet | |
 | requirements.txt  |  Fichier contenant les dépendances du jeu| Pour les installer `pip install -r requirements.txt` |
 | /level/level1.map  |  Fichier comportant le positionnement des éléments du niveau un du jeu | |
@@ -40,22 +44,3 @@ Voici la liste des fichiers du jeu disponible sur GitHub https://github.com/sheq
 | /images/pipe.png  |  Image de l'objet Tube de pvc que MacGyver doit collecter | |
 | /images/syringe.png  |  Image de l'objet seringue que MacGyver doit collecter | |
 | /images/ether.png  |  Image de l'objet mur que MacGyver ne peut pas marcher | |
-
-
-
-
-#### Carte
-- Chargement du niveau depuis le fichier level/level1.map
-- Ajout de manière aléatoire de trois objects dans les cases accessible par MacGyver
-
-#### MacGyver :
-- Déplacement de MacGyver dans les qautre directions (haut, droite, bas, gauche)
-- Gestion des collisions entre MacGyver et les murs
-- Gestion de la capture des objets par MacGyver et incrémentation du score
-
-
-
-
-
-
-Documentation de PyGame : https://www.pygame.org/docs/
